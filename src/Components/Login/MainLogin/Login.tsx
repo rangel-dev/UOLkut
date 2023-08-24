@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import Style from "../MainLogin/index.module.css";
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../../../firebase';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import Style from "../MainLogin/index.module.css";
 
 interface LoginProps {
   setIsRegistering: (value: boolean) => void;
@@ -11,23 +12,21 @@ export const Login: React.FC<LoginProps> = ({ setIsRegistering }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const authenticate = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/login', { email, password });
-  
-      if (response.data.authenticated) {
-        navigate("/App");
-      } else {
-        alert('Credenciais inválidas');
-      }
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/App");
     } catch (error) {
+      setErrorMessage("E-mail ou senha inválidos. Por favor, tente novamente.");
       console.error('Ocorreu um erro na autenticação:', error);
     }
   };
 
   return (
     <>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <label htmlFor="email"></label>
       <input type="text" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
       <label htmlFor="password"></label>

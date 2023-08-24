@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { auth, db } from '../../../firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Style from "../MainLogin/index.module.css";
+import { collection, addDoc } from "firebase/firestore";
 
 interface User {
   email: string;
@@ -24,27 +26,39 @@ export const Register: React.FC = () => {
     city: '',
     relationship: ''
   });
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value
-    });
+    setUser({ ...user, [name]: value });
   };
 
   const registerUser = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/users', user);
+      const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
+      await addDoc(collection(db, 'users'), {
+        uid: userCredential.user?.uid,
+        birth: user.birth,
+        profession: user.profession,
+        country: user.country,
+        city: user.city,
+        relationship: user.relationship
+      });
+      setSuccessMessage("Conta criada com sucesso!");
+      setErrorMessage(null);
       navigate("/");
     } catch (error) {
-      console.error('Ocorreu um erro ao criar o usuário:', error);
+      setErrorMessage("Ocorreu um erro ao criar a conta. Por favor, tente novamente.");
+      setSuccessMessage(null);
     }
   };
 
   return (
     <>
+      {successMessage && <div className="success-message">{successMessage}</div>}
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <div className={Style.mail}>
         <input type="text" name="email" placeholder="E-mail" value={user.email} onChange={handleChange} className={Style.mail} />
         <input type="password" name="password" placeholder="Senha" value={user.password} onChange={handleChange} className={Style.senha} />
