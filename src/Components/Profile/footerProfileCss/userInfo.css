@@ -1,6 +1,6 @@
 .bordered-word {
   border-radius: 30px;
-  border: 1px solid #ed2590;
+  border: 1px solid #ED6D25;
   display: inline-flex;
   padding: 2px 16px;
   justify-content: center;
@@ -11,8 +11,7 @@
 }
 
 .ver-todos {
-  color: #ed2590;
-  color: #ed2590;
+  color: #ED6D25;
   font-family: SF Pro Display;
   font-size: var(--font-smallest);
   font-style: normal;

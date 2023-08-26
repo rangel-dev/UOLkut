@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../../../assets/logo-orkut.svg';
 import userImage from '../../../assets/iuricode 1.svg';
 import '../headerProfileCss/navbar.css'
 import searchIcon from '../../../assets/MagnifyingGlass.svg'
-import  '../../../AppProfile.css'
+import '../../../AppProfile.css'
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ const Navbar: React.FC = () => {
       <nav className="navbar">
         <div className='navbar-content'>
           <div className="nav-group-left">
-            <img className='img-nav' src={logo} alt="Logo" onClick={() => navigate('/')} />
+            <span className='img-nav logo-text' onClick={() => navigate('/')}>UOLkut</span>
             <span className="nav-link desktop-only">Início</span>
             <span className="nav-link desktop-only profile-link">Perfil</span>
             <span className="nav-link desktop-only">Comunidades</span>

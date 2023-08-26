@@ -17,7 +17,9 @@ export const Login: React.FC<LoginProps> = ({ setIsRegistering }) => {
   const authenticate = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/App");
+
+      
+     navigate("/App");
     } catch (error) {
       setErrorMessage("E-mail ou senha inválidos. Por favor, tente novamente.");
       console.error('Ocorreu um erro na autenticação:', error);
@@ -35,7 +37,7 @@ export const Login: React.FC<LoginProps> = ({ setIsRegistering }) => {
           <input type="checkbox" name="remember-password" className={Style.inputCheckbox} />
           <label className={Style.spanCheck} htmlFor="remember-password">Lembrar minha senha</label>
       </div>
-      <button onClick={authenticate} className={Style.buttonFirstChild}>Entrar na conta</button>
+      <button type='button' onClick={authenticate} className={Style.buttonFirstChild}>Entrar na conta</button>
       <button onClick={() => setIsRegistering(true)} className={Style.buttonSecondChild}>Criar uma conta</button>
       <a className={Style.passwordForgot}>Esqueci a minha senha</a>
     </>

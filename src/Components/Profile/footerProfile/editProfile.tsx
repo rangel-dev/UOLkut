@@ -4,39 +4,35 @@ import '../footerProfileCss/editProfile.css';
 import { useNavigate } from 'react-router-dom';
 
 interface EditProfileFieldProps {
-  label: string;
+  label?: string;
+  placeholder?: string;
   value: string;
   onChange: (value: string) => void;
   options?: string[];
   type?: string;
 }
 
-const EditProfileField: React.FC<EditProfileFieldProps> = ({ label, value, onChange, options, type = 'text' }) => {
-  const modifiedOptions = options?.map((option) =>
-    option === 'nada a declarar' ? 'Nada a declarar' : option === 'depende do dia' ? 'Depende do dia' : option
-  );
-
+const EditProfileField: React.FC<EditProfileFieldProps> = ({ label, placeholder, value, onChange, options, type = 'text' }) => {
   return (
     <div>
-      <label>{formatKey(label)}: </label>
+      {label && <label>{label}:</label>}
       {options ? (
         <select value={value} onChange={(e) => onChange(e.target.value)}>
-          {modifiedOptions?.map((option) => (
+          {options?.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
           ))}
         </select>
       ) : (
-        <input type={type} value={value} onChange={(e) => onChange(e.target.value)} />
+        <input type={type} placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} />
       )}
     </div>
   );
 };
 
 const EditProfile: React.FC = () => {
-  const { user, setUser, relacionamentoOptions, interessesOptions, filhosOptions, sexoOptions, fumaOptions, bebeOptions } =
-    useContext(UserContext);
+  const { user, setUser, relacionamentoOptions } = useContext(UserContext);
   const [editedUser, setEditedUser] = useState(user);
   const navigate = useNavigate();
 
@@ -70,28 +66,16 @@ const EditProfile: React.FC = () => {
 
   return (
     <div className="edit-profile-container">
+      <h1>Editar Informações</h1>
       {Object.entries(editedUser).map(([key, value]) => {
+        if (['Bebe', 'Fuma', 'Filhos', 'Sexo', 'Interesses_no_Orkut'].includes(key)) return null;
         switch (key) {
           case 'Relacionamento':
-            return (
-              <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={relacionamentoOptions} />
-            );
+            return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={relacionamentoOptions} />;
           case 'Aniversário':
             return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} type="date" />;
-          case 'Interesses_no_Orkut':
-            return (
-              <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={interessesOptions} />
-            );
-          case 'Filhos':
-            return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={filhosOptions} />;
-          case 'Sexo':
-            return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={sexoOptions} />;
-          case 'Fuma':
-            return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={fumaOptions} />;
-          case 'Bebe':
-            return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} options={bebeOptions} />;
           default:
-            return <EditProfileField key={key} label={key} value={value} onChange={handleFieldChange(key)} />;
+            return <EditProfileField key={key} placeholder={formatKey(key)} value={value} onChange={handleFieldChange(key)} />;
         }
       })}
       <button onClick={handleSaveClick}>Salvar</button>

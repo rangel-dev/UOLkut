@@ -24,6 +24,18 @@
   gap: 20px;
 }
 
+.logo-text {
+  color: #ED6D25;
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .img-nav {
   width: 107px;
   height: 32px;
@@ -37,7 +49,7 @@
 }
 
 .profile-link {
-  color: #ed2590;
+  color: #ED6D25;
 }
 
 .search-bar-desktop-wrapper {
@@ -99,7 +111,7 @@
 }
 
 .arrow-down {
-  border: solid #ed2590;
+  border: solid #ED6D25;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
