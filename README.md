@@ -6,7 +6,7 @@ UOLkut is a web application built with React and TypeScript. The project allows 
 
 ## Version
 
-Current version: [Your Project Version]
+Current version: 0.1
 
 ## Pre requisites
 
@@ -27,11 +27,11 @@ npm start
 
 ### JWT Authentication
 
-This project uses JWT (JSON Web Tokens) for authentication. [Explain how to implement and use JWT authentication.]
+This project uses JWT (JSON Web Tokens) for authentication.
 
 ### API Integration with Axios
 
-The project uses Axios for API calls. [Details on how to integrate with APIs, manage loading states, and handle errors.]
+The project uses Axios for API calls. 
 
 ## Tests
 
