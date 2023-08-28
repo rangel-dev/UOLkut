@@ -8,7 +8,7 @@ UOLkut is a web application built with React and TypeScript. The project allows 
 
 Current version: [Your Project Version]
 
-## Prerequisites
+## Pre requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
 - [Node.js](https://nodejs.org/en/)
