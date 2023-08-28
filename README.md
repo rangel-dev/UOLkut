@@ -1,5 +1,7 @@
 # UOLkut
 
+Marcos Rangel version
+
 ## Description
 
 UOLkut is a web application built with React and TypeScript. The project allows users to register using an email and subsequently log in to the website, all facilitated by Firebase.
