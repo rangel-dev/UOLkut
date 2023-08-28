@@ -1,3 +1,7 @@
+.body {
+  font-family: "Roboto Flex", sans-serif;
+}
+
 .main {
   display: flex;
   background: #d9e6f7;
@@ -47,15 +51,15 @@
 
 .main p {
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   color: #fff;
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   margin-top: 18em;
-  margin-right: 10em;
-  margin-left: -5em;
+  margin-right: 25em;
+  margin-left: 15em;
 }
 
 .form img {
@@ -263,6 +267,39 @@
     margin-left: 3rem;
   }
 }
+
+/* ResetPassword.module.css */
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.inputField {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.title {
+  color: #ed6d25;
+}
+
+.button {
+  background-color: #ed6d25;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ed6d25;
+}
+
 
 @media (max-width: 768px) {
   .login_banner,

@@ -15,7 +15,11 @@ interface User {
   relationship: string;
 }
 
-export const Register: React.FC = () => {
+interface RegisterProps {
+  setFormView: React.Dispatch<React.SetStateAction<'login' | 'register' | 'forgotPassword'| 'resetPassword'>>;
+}
+
+export const Register: React.FC<RegisterProps> = ({ setFormView }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<User>({
     email: '',
@@ -55,6 +59,10 @@ export const Register: React.FC = () => {
     }
   };
 
+  const goToLogin = () => {
+    setFormView('login');
+  };
+
   return (
     <>
       {successMessage && <div className="success-message">{successMessage}</div>}
@@ -72,7 +80,8 @@ export const Register: React.FC = () => {
         <input type="text" name="city" placeholder="Cidade" value={user.city} onChange={handleChange} />
       </div>
       <input type="text" name="relationship" placeholder="Relacionamento" value={user.relationship} onChange={handleChange} />
-      <button onClick={registerUser} className={Style.buttonFirstChild}>Criar uma conta</button>
+      <button type="button" onClick={registerUser} className={Style.buttonFirstChild}>Criar uma conta</button>
+      <button type="button" onClick={goToLogin} className={Style.someButtonClass}>Já tem uma conta? Acesse aqui</button>
     </>
   );
 };

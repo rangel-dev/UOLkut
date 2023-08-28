@@ -1,8 +1,11 @@
-# Orkut Prototype Project
+# UOLkut Project
+
+login to test: novo@novo.com
+senha: 123456
 
 ## Table of Contents
 
-- [Orkut Prototype Project](#orkut-prototype-project)
+- [UOLkut Project](#orkut-prototype-project)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Technologies](#technologies)

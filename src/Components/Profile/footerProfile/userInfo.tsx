@@ -5,9 +5,10 @@ import { UserContext, formatKey } from './userContext';
 interface UserInfoProps {
   label: string;
   value: string;
+  addMarginTop: boolean;
 }
 
-const UserInfoField: React.FC <UserInfoProps> = ({ label, value }) => {
+const UserInfoField: React.FC<UserInfoProps> = ({ label, value, addMarginTop }) => {
   const isMoviesOrMusic = label === 'Músicas' || label === 'Filmes';
   const words = value.split('  ').map((word, index) => ({
     value: word,
@@ -23,8 +24,7 @@ const UserInfoField: React.FC <UserInfoProps> = ({ label, value }) => {
   };
 
   return (
-    <>
-    <div>
+    <div className={`user-info-field${addMarginTop ? ' add-margin-top' : ''}`}>
       <label>{formatKey(label)}: </label>
       <span className="user-value">
         {words.map(({ value: word, hasLeadingSpace }, index) => {
@@ -54,7 +54,6 @@ const UserInfoField: React.FC <UserInfoProps> = ({ label, value }) => {
         )}
       </span>
     </div>
-    </>
   );
 };
 
@@ -62,13 +61,16 @@ const UserInfo: React.FC = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <>
-      <div className="user-info-all">
-        {Object.entries(user).map(([key, value]) => (
-          <UserInfoField key={key} label={key} value={value} />
-        ))}
-      </div>
-    </>
+    <div className="user-info-all">
+      {Object.entries(user).map(([key, value], index) => (
+        <UserInfoField
+          key={key}
+          label={key}
+          value={value}
+          addMarginTop={key === 'Músicas' && index !== 0}
+        />
+      ))}
+    </div>
   );
 };
 

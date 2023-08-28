@@ -2,6 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: 'Roboto Flex', sans-serif;
 }
 
 .body-container {
@@ -39,6 +40,21 @@
 .right-section {
   width: 23%;
 }
+
+.logout-button {
+  margin-left: 20px;
+  background-color: #ED6D25;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: #ED6D25;
+}
+
 
 @media screen and (max-width: 1279px) {
 

@@ -6,14 +6,14 @@ import Layout from '../Components/Profile/footerProfile/layout';
 
 export const App = () => {
   return (
-    <>
+    <div style={{ fontFamily: 'Roboto Flex, sans-serif' }}> {/* Adicione o estilo aqui */}
       <UserProvider>
         <Routes>
           <Route path="/" element={<MainLogin />} />
-          <Route path="/App" element={<Layout />} />
+          <Route path="/App/*" element={<Layout />} />
           <Route path="/edit" element={<EditProfileLayout />} />
         </Routes>
       </UserProvider>
-    </>
-  )
+    </div>
+  );
 }
