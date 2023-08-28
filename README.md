@@ -1,71 +1,63 @@
-# UOLkut Project
+# UOLkut
 
-login to test: novo@novo.com
-senha: 123456
+## Description
 
-## Table of Contents
+UOLkut is a web application built with React and TypeScript. The project allows users to register using an email and subsequently log in to the website, all facilitated by Firebase.
 
-- [UOLkut Project](#orkut-prototype-project)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Technologies](#technologies)
-  - [Features](#features)
-  - [Getting Started](#getting-started)
+## Version
 
-## Introduction
+Current version: [Your Project Version]
 
-The Orkut Prototype project is a recreation of the famous social networking platform "Orkut," which played a significant role in shaping the early social media landscape. This project serves as a tribute to the original platform while incorporating modern technologies. The team behind this endeavor consists of talented developers:
+## Prerequisites
 
-- [@diegoframos81](https://github.com/diegoframos81)
-- [@geleco](https://github.com/geleco)
-- [@gpurplem](https://github.com/gpurplem)
-- [@Renanlb](https://github.com/Renanlb)
+Before you begin, you will need to have the following tools installed on your machine:
+- [Node.js](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
 
-## Technologies
+### Installing Dependencies
 
-The project leverages the following technologies:
-
-- **React** 
-- **TypeScript**
-- **JavaScript**
-- **HTML**
-- **CSS**
-
-## Features
-
-The Orkut Prototype project includes the following features:
-
-1. **Login Screen**: Allows users to enter their credentials to access their registered accounts.
-2. **Registration Screen**: Enables users to create a new account by providing personal information.
-3. **Profile Screen**: Displays user information and activities after successful login.
-4. **Edit Profile Screen**: Allows users to edit their profile information, including name and profile picture.
-
-## Getting Started
-
-Follow these instructions to run the Orkut Prototype project locally:
-
-1. Clone this repository to your local machine:
-
-```bash
-git clone https://github.com/diegoframos81/Compass-Second-Challenge.git
-cd Compass-Second-Challenge 
-```
-
-2. Install the project dependencies:
-
-```bash
 npm install
-# or
-yarn install
-```
 
-3. Start the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How to Use
 
-4. Open your browser and visit `http://localhost:3000` to view the project.
+### Starting the Development Server
 
+npm start
+
+### JWT Authentication
+
+This project uses JWT (JSON Web Tokens) for authentication. [Explain how to implement and use JWT authentication.]
+
+### API Integration with Axios
+
+The project uses Axios for API calls. [Details on how to integrate with APIs, manage loading states, and handle errors.]
+
+## Tests
+
+To run the tests, use the following command:
+
+
+npm test
+
+
+## Main Dependencies
+
+- axios: For making API calls
+- express: Backend framework
+- firebase: Authentication and database services
+- jsonwebtoken: JWT implementation
+
+## Development Dependencies
+
+- TypeScript: Programming language
+- ESLint: Code linting
+- Vite: Build tool
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
